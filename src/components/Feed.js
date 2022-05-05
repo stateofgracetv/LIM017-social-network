@@ -49,22 +49,22 @@ export const Feed = () => {
     <footer>
       <nav id= "footerMobile">
         <ul class="footerFeed darkPurple">
-          <div class="listItem">
+          <div class="listItem" id="home">
             <li class="icon-home sidebarIcon"></li>
             <p class="iconLabel">Home</p>
           </div>
-          <div class="listItem">
+          <div class="listItem" id="BookFilter">
             <li class="icon-books sidebarIcon"></li>
             <p class="iconLabel">Books</p>
           </div>
           <div class="listItem">
             <li><img src="images/mobile/upload post icon.png" id="uploadPost"></li>
           </div>
-          <div class="listItem">
+          <div class="listItem" id="MovieFilter">
             <li class="icon-video-camera sidebarIcon"></li>
             <p class="iconLabel">Movies</p>
           </div>
-          <div class="listItem">
+          <div class="listItem" id="tvShowFilter">
             <li class="icon-tv sidebarIcon"></li>
             <p class="iconLabel">TV Shows</p>
           </div>
@@ -180,7 +180,7 @@ export const Feed = () => {
     onGetPost((querySnapshot) => {
       let posts = '';
       querySnapshot.forEach((doc) => {
-        console.log('soy un documento', doc);
+        // console.log('soy un documento', doc);
         const postData = doc.data();
         posts += `
           <div id="postFormContainer" id="postForm">
@@ -230,7 +230,7 @@ export const Feed = () => {
     });
   };
   fetchPosts();
-  console.log('soy feccccch', fetchPosts(), addLikesPost);
+  // console.log('soy feccccch', fetchPosts(), addLikesPost);
 
   confirmDelete.addEventListener('click', () => {
     deletePost(deleteId)
@@ -270,17 +270,26 @@ export const Feed = () => {
 
   // Filtro tag según: movie, book, tvShow
   movieFilter.addEventListener('click', () => {
-    getDataWithFilters('movie', (query) => {
-      console.log(query);
-      query.forEach((doc) => {
-        // const postDoc = doc.data();
-        const postDocument = doc.data();
-        console.log(postDocument);
+    getDataWithFilters('Movie', (querySnapshot) => {
+      let posts = '';
+      postContainer.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const postData = doc.data();
+        posts += `
+        <div id="postFormContainer" id="postForm">
+          <div class="usersEmail">
+            <p id="userName" class="darkPurple">example@gmail.com</p>
+            <p id="tagSelected">${postData.tag}</p>
+          </div>
+          <p class="postBody">${postData.post}</p>
+        </div>
+        `;
       });
+      postContainer.innerHTML = posts;
     });
   });
   BookFilter.addEventListener('click', () => {
-    getDataWithFilters('book', (querySnapshot) => {
+    getDataWithFilters('Book', (querySnapshot) => {
       let posts = '';
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
@@ -299,7 +308,7 @@ export const Feed = () => {
     });
   });
   tvShowFilter.addEventListener('click', () => {
-    getDataWithFilters('tvShow', (querySnapshot) => {
+    getDataWithFilters('TV Show', (querySnapshot) => {
       let posts = '';
       postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
