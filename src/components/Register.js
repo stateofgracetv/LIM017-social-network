@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 
 import {
-  signUpEmail, verificationEmail, logInGoogle, logInFacebook,
+  signUpEmail, verificationEmail, logInGoogle, logInFacebook, getUser,
 } from '../lib/firebaseAuth.js';
 import { onNavigate, checkEmail, checkPassword } from '../main.js';
 
@@ -108,8 +108,14 @@ export const Register = () => {
     e.preventDefault();
     if (checkEmail(email.value) && checkPassword(password.value)) {
       signUpEmail(email.value, password.value)
-        .then(() => {
+        .then((userCredential) => {
+          const user = userCredential.user; // COMO PARAMETRO userCredential */
           progressMsg.innerText = 'Your account is being created, please wait';
+          getUser(user.uid)
+            .then((re) => {
+              console.log(re);
+            })
+            .catch((err) => err);
           verificationEmail()
             .then(() => {
               onNavigate('/verifyEmail');
@@ -143,13 +149,6 @@ export const Register = () => {
       .then(() => {
         onNavigate('/feed');
       });
-    /* .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = FacebookAuthProvider.credentialFromError(error);
-        console.log(error);
-      }); */
   });
 
   return registerDiv;

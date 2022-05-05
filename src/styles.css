@@ -267,7 +267,11 @@ section {
     margin-top: -15px;
     margin-bottom: 7px;
 }
-
+.flexDlt {
+    display: flex;
+    margin-top: 5px;
+    gap: 15px;
+}
 /***yohana cambios **/
 .padlock{
     width: 140px;
@@ -292,7 +296,9 @@ section {
     margin: 5px 0 5px;
     font-size: larger;
 }
-
+.margin{
+    margin: 20px;
+}
 /** Yohana cambios feed*/
 .modal {
     position: fixed;
@@ -307,10 +313,23 @@ section {
     height: 50vh;
     padding: 10px;
 }
-.modal.inactive {
+.modalDlt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border-radius: 20px;
+    z-index: 10;
+    width: 50vh;
+    max-width: 80%;
+    height: 30vh;
+    padding: 10px;
+}
+.modal.inactive, .modalDlt.inactive {
     transform: translate(-50%, -50%) scale(0);
 }
-.modal.active {
+.modal.active, .modalDlt.active {
     transform: translate(-50%, -50%) scale(1);
 }
 #overlay {
@@ -330,10 +349,11 @@ section {
     opacity: 1;
     pointer-events: all;
 }
-#postForm {
+#postForm, #deleteDiv {
     background-color:white;
     box-shadow: 0px 10px 15px -5px #141414;
 }
+
 #postDescription {
     resize: none;
     height: 150px;
@@ -361,7 +381,9 @@ section {
 .mtop {
     margin-top: 15px;
 }
-
+.deletePopUp {
+    display: block;
+}
 /*********/
 
 .desktop {
@@ -431,8 +453,12 @@ section {
     padding: 15px;
 }
 
-#like {
+.likeButton {
     cursor: pointer;
+    color: #5F256E;
+}
+.icon-like-red{
+    color: red;
 }
 
 @media (min-width: 867px) and (max-width: 1800px){

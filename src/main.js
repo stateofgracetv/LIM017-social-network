@@ -53,5 +53,5 @@ export const checkPassword = (str) => {
   } if (passwordPattern.test(str)) {
     return true;
   }
-  return checkPassword();
+  return passwordPattern;
 };
