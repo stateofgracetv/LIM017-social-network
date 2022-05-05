@@ -21,7 +21,6 @@ export const VerifyEmail = () => {
       // const uid = user.uid;
       // const email = user.email;
       const emailVerified = user.emailVerified;
-      console.log('antes del if', emailVerified);
       if (emailVerified) {
         signUpMsg.textContent = `${user.email} Verified email`;
         onNavigate('/logIn');

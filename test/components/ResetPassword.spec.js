@@ -1,7 +1,10 @@
-/* import { ResetPassword } from '../../src/components/ResetPassword.js';
-import { recoverPasswordWithEmail } from '../../src/lib/firebaseAuth.js';
+import { ResetPassword } from '../../src/components/ResetPassword.js';
+import { onNavigate } from '../../src/main.js';
+import { LogIn } from '../../src/components/LogIn.js';
+import { Home } from '../../src/components/Home.js';
 
 jest.mock('../../src/lib/firebaseUtils.js');
+jest.mock('../../src/components/Feed.js');
 
 beforeEach(() => {
   document.body.innerHTML = "<div id='root'></div>";
@@ -9,33 +12,19 @@ beforeEach(() => {
 });
 
 describe('Rutas de navegación', () => {
-  it('Volver a LogIn', () => {
+  it('Redirige a LogIn', () => {
     const resetPassDiv = ResetPassword();
-    const backLogIn = resetPassDiv.querySelector('#backLogIn');
-    backLogIn.dispatchEvent(new Event('click'));
-    expect(window.location.pathname).toBe('/logIn');
+    const buttonresetPass = resetPassDiv.querySelector('#backLogIn');
+    buttonresetPass.dispatchEvent(new Event('click'));
+    const logInComponent = LogIn();
+    expect(onNavigate('/logIn')).toEqual(logInComponent);
   });
 
-  it('Ir a Registro', () => {
+  it('Redirige a Home', () => {
     const resetPassDiv = ResetPassword();
-    const backLogIn = resetPassDiv.querySelector('#goToRegisterBtn');
-    backLogIn.dispatchEvent(new Event('click'));
-    expect(window.location.pathname).toBe('/register');
+    const buttonresetPass = resetPassDiv.querySelector('#goToRegisterBtn');
+    buttonresetPass.dispatchEvent(new Event('click'));
+    const homeComponent = Home();
+    expect(onNavigate('/')).toEqual(homeComponent);
   });
 });
-
-/* describe('Envía email de recuperación de contraseña', () => {
-  it('Presiona botón para enviar email', (done) => {
-    // jest.setTimeout();
-    const resetPassDiv = ResetPassword();
-    const sendResetEmail = resetPassDiv.querySelector('#sendResetEmail');
-    const email = resetPassDiv.querySelector('#userEmailPassReset');
-    email.value = 'front@end.la';
-    sendResetEmail.dispatchEvent(new Event('click'));
-    // recoverPasswordWithEmail(email.value);
-    const result = resetPassDiv.querySelector('#sendEmailMsg');
-    result.innerHTML = 'Password reset email sent,<br>please check you email';
-    expect(result.innerHTML).toEqual('Password reset email sent,<br>please check you email');
-    done();
-  });
-}); */

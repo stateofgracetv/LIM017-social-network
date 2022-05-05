@@ -6,7 +6,7 @@ export const ResetPassword = () => {
   const resetPassDiv = document.createElement('div');
   const containerPassDiv = `
   <header class="headerReset">
-        <img src="images/logotype/Full-logo.png" alt="Binge Worthy logo" class="fullLogo left">
+    <img src="images/logotype/Full-logo.png" alt="Binge Worthy logo" class="fullLogo left">
   </header>
   <div class="containerFirstPart">
     <figure>

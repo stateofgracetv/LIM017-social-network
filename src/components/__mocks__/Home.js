@@ -1,4 +1,4 @@
-export const VerifyEmail = () => {
+export const Home = () => {
   const node = document.createElement('div');
   return node;
 };

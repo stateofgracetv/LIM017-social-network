@@ -112,8 +112,10 @@ section {
 }
 
 .top {
-    grid-template-columns: 20vw 60vw 20vw;
-    margin-top: 2vh;
+    /* grid-template-columns: 20vw 60vw 20vw;
+    margin-top: 2vh; */
+    grid-template-columns: 65vw 35vw;
+    margin: 1.5vh 0;
 }
 
 .icon-arrow-left2 {
@@ -265,7 +267,11 @@ section {
     margin-top: -15px;
     margin-bottom: 7px;
 }
-
+.flexDlt {
+    display: flex;
+    margin-top: 5px;
+    gap: 15px;
+}
 /***yohana cambios **/
 .padlock{
     width: 140px;
@@ -290,7 +296,9 @@ section {
     margin: 5px 0 5px;
     font-size: larger;
 }
-
+.margin{
+    margin: 20px;
+}
 /** Yohana cambios feed*/
 .modal {
     position: fixed;
@@ -305,10 +313,23 @@ section {
     height: 50vh;
     padding: 10px;
 }
-.modal.inactive {
+.modalDlt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border-radius: 20px;
+    z-index: 10;
+    width: 50vh;
+    max-width: 80%;
+    height: 30vh;
+    padding: 10px;
+}
+.modal.inactive, .modalDlt.inactive {
     transform: translate(-50%, -50%) scale(0);
 }
-.modal.active {
+.modal.active, .modalDlt.active {
     transform: translate(-50%, -50%) scale(1);
 }
 #overlay {
@@ -328,10 +349,11 @@ section {
     opacity: 1;
     pointer-events: all;
 }
-#postForm {
+#postForm, #deleteDiv {
     background-color:white;
     box-shadow: 0px 10px 15px -5px #141414;
 }
+
 #postDescription {
     resize: none;
     height: 150px;
@@ -359,7 +381,9 @@ section {
 .mtop {
     margin-top: 15px;
 }
-
+.deletePopUp {
+    display: block;
+}
 /*********/
 
 .desktop {
@@ -368,22 +392,23 @@ section {
 
 .logoFeed{
     height: 65px;
-    margin: 5px 0px 0px 30px;
+    margin-left: 4vw;
 }
 
 .navFeed{
     background: #fff;
-    padding-bottom: 10px;
+    position: fixed;
     border-bottom: solid 1px #DEDEE2;
-} 
-
-.nav{
-    position: relative;
-    left: 100%;
-    top: 23%;
-    height: 40px
 }
 
+#logOut {
+    align-self: center;
+    justify-self: end;
+    margin-right: 5vw;
+}
+#logOutDesktop {
+    display: none;
+}
 .footerFeed{
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     position: fixed;
@@ -395,6 +420,9 @@ section {
     border-radius: 60px 60px 0px 0px;
     box-shadow: 0px 0px 4px 1px #d4cdcd;
     justify-content: space-around;
+}
+.listItem {
+    cursor: pointer;
 }
 
 #uploadPost{
@@ -419,9 +447,18 @@ section {
 }
 #postContainer {
     gap: 20px;
+    margin: 15vh 0 20vh;
 }
 .usersEmail {
     padding: 15px;
+}
+
+.likeButton {
+    cursor: pointer;
+    color: #5F256E;
+}
+.icon-like-red{
+    color: red;
 }
 
 @media (min-width: 867px) and (max-width: 1800px){
@@ -468,11 +505,11 @@ section {
         transform: translate(0, -50%);
     }
 
-    .headerReset {
-        width: 100vw;
-        background: white;
-        box-shadow: 0px 10px 15px -5px #ccc;
+    .orContinueWith {
+        margin-bottom: 5vh;
     }
+
+    /* styles for resetPassword */
     .left{
         margin-left: 10vh;
         height: 90px;
@@ -484,19 +521,55 @@ section {
         box-shadow: 0px 0px 9px 2px #d4cdcd;
         width: 35vw;
     }
-  
+
+    /* styles for feed */
     .top {
-        grid-template-columns: 20% 60% 20%;
+        grid-template-columns: none;
+        margin: 0;
     }
-
-    .orContinueWith {
-        margin-bottom: 5vh;
+    .navFeed {
+        background: transparent;
+        border-bottom: 0;
+        justify-content: end;
+        width: 100vw;
     }
-
+    .logoFeed {
+        margin: 2vh 4vw;
+    }
     #postContainer {
-        gap: 20px;
+        margin: 5vh 0 10vh;
     }
     #postFormContainer {
         width: 60vh;
+    }
+    .footerFeed {
+        padding: 0;
+        width: 20vw;
+        height: 100vh;
+        align-items: center;
+        grid-template-columns: none;
+        grid-template-rows: repeat(6, 1fr);
+        border-radius: 0;
+    }
+    #logOutMobile {
+        display: none;
+    }
+    #logOutDesktop {
+        display: grid;
+    }
+    #uploadPost {
+        position: relative;
+        margin: auto;
+    }
+    .listItem {
+        display: flex;
+        justify-content: center;
+        gap: 1vw;
+    }
+    .iconLabel {
+        font-size: large;
+    }
+    .sidebarIcon {
+        margin-top: 2px;
     }
 }

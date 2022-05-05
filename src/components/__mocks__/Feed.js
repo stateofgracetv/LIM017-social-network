@@ -1,4 +1,4 @@
 export const Feed = () => {
-  const nodo = document.createElement('div');
-  return nodo;
+  const node = document.createElement('div');
+  return node;
 };

@@ -69,12 +69,14 @@ export const LogIn = () => {
     e.preventDefault();
     logInEmail(email.value, password.value)
       .then(() => {
+        console.log('cuentaaaaaaa creaddaaaaaaaaa');
         logInMsg.innerHTML = 'The user logged in';
         email.classList.add('valid');
         password.classList.add('valid');
         setTimeout(() => {
           onNavigate('/feed');
         }, 2000);
+        console.log('mensaje de loginnnnnn', logInMsg);
       })
       .catch((error) => {
         console.log('entreeee al error');
