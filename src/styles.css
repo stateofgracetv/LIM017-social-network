@@ -112,8 +112,10 @@ section {
 }
 
 .top {
-    grid-template-columns: 20vw 60vw 20vw;
-    margin-top: 2vh;
+    /* grid-template-columns: 20vw 60vw 20vw;
+    margin-top: 2vh; */
+    grid-template-columns: 65vw 35vw;
+    margin: 1.5vh 0;
 }
 
 .icon-arrow-left2 {
@@ -368,22 +370,23 @@ section {
 
 .logoFeed{
     height: 65px;
-    margin-left: 2vw;
+    margin-left: 4vw;
 }
 
 .navFeed{
     background: #fff;
-    padding-bottom: 10px;
+    position: fixed;
     border-bottom: solid 1px #DEDEE2;
-} 
-
-.nav{
-    position: relative;
-    left: 100%;
-    top: 23%;
-    height: 40px
 }
 
+#logOut {
+    align-self: center;
+    justify-self: end;
+    margin-right: 5vw;
+}
+#logOutDesktop {
+    display: none;
+}
 .footerFeed{
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     position: fixed;
@@ -395,6 +398,9 @@ section {
     border-radius: 60px 60px 0px 0px;
     box-shadow: 0px 0px 4px 1px #d4cdcd;
     justify-content: space-around;
+}
+.listItem {
+    cursor: pointer;
 }
 
 #uploadPost{
@@ -419,6 +425,7 @@ section {
 }
 #postContainer {
     gap: 20px;
+    margin: 15vh 0 20vh;
 }
 .usersEmail {
     padding: 15px;
@@ -472,10 +479,11 @@ section {
         transform: translate(0, -50%);
     }
 
-    /* styles for feed */
-    .headerReset {
-        width: 100vw;
+    .orContinueWith {
+        margin-bottom: 5vh;
     }
+
+    /* styles for resetPassword */
     .left{
         margin-left: 10vh;
         height: 90px;
@@ -487,23 +495,55 @@ section {
         box-shadow: 0px 0px 9px 2px #d4cdcd;
         width: 35vw;
     }
-  
+
+    /* styles for feed */
     .top {
-        grid-template-columns: 20% 60% 20%;
+        grid-template-columns: none;
+        margin: 0;
     }
-
-    .nav {
-        display: none;
+    .navFeed {
+        background: transparent;
+        border-bottom: 0;
+        justify-content: end;
+        width: 100vw;
     }
-
-    .orContinueWith {
-        margin-bottom: 5vh;
+    .logoFeed {
+        margin: 2vh 4vw;
     }
-
     #postContainer {
-        gap: 20px;
+        margin: 5vh 0 10vh;
     }
     #postFormContainer {
         width: 60vh;
+    }
+    .footerFeed {
+        padding: 0;
+        width: 20vw;
+        height: 100vh;
+        align-items: center;
+        grid-template-columns: none;
+        grid-template-rows: repeat(6, 1fr);
+        border-radius: 0;
+    }
+    #logOutMobile {
+        display: none;
+    }
+    #logOutDesktop {
+        display: grid;
+    }
+    #uploadPost {
+        position: relative;
+        margin: auto;
+    }
+    .listItem {
+        display: flex;
+        justify-content: center;
+        gap: 1vw;
+    }
+    .iconLabel {
+        font-size: large;
+    }
+    .sidebarIcon {
+        margin-top: 2px;
     }
 }

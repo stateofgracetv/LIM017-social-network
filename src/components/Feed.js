@@ -8,11 +8,10 @@ export const Feed = () => {
   const feedDiv = document.createElement('div');
   const containerFeed = `
     <header class= "navFeed">
-      <figure class="top headerReset">
+      <nav class="top headerReset">
         <img src="images/logotype/Full-logo.png" alt="Binge Worthy logo" class="logoFeed">
-        <img src="images/mobile/Mobile icon nav.png" class="nav">
-        <input type="button" id="logOut" value="Log out" class="button">
-      </figure>
+        <input type="button" id="logOutMobile" value="Log out" class="button logOut">
+      </nav>
     </header>
     <form id="postForm" class="modal" class="inactive">
       <div class="gridColum mtop">
@@ -35,18 +34,35 @@ export const Feed = () => {
     <footer>
       <nav id= "footerMobile">
         <ul class="footerFeed darkPurple">
-          <li class="icon-home"></li>
-          <li class="icon-books"></li>
-          <div><img src="images/mobile/upload post icon.png" id="uploadPost"> </div>
-          <li class="icon-video-camera"></li>
-          <li class="icon-man-woman"></li>
+          <div class="listItem">
+            <li class="icon-home sidebarIcon"></li>
+            <p class="iconLabel">Home</p>
+          </div>
+          <div class="listItem">
+            <li class="icon-books sidebarIcon"></li>
+            <p class="iconLabel">Books</p>
+          </div>
+          <div class="listItem">
+            <li><img src="images/mobile/upload post icon.png" id="uploadPost"></li>
+          </div>
+          <div class="listItem">
+            <li class="icon-video-camera sidebarIcon"></li>
+            <p class="iconLabel">Movies</p>
+          </div>
+          <div class="listItem">
+            <li class="icon-tv sidebarIcon"></li>
+            <p class="iconLabel">TV Shows</p>
+          </div>
+          <div class="listItem">
+            <li><input type="button" id="logOutDesktop" value="Log out" class="button logOut"></li>
+          </div>
         </ul>
       </nav>
     </footer>
     `;
   feedDiv.innerHTML = containerFeed;
 
-  const logOutBtn = feedDiv.querySelector('#logOut');
+  const logOutBtns = feedDiv.querySelectorAll('.logOut');
   const description = feedDiv.querySelector('#postDescription');
   const postBtn = feedDiv.querySelector('#postBtn');
   const postForm = feedDiv.querySelector('#postForm');
@@ -146,11 +162,13 @@ export const Feed = () => {
     postForm.reset();
   });
 
-  logOutBtn.addEventListener('click', () => {
-    logOut()
-      .then(() => {
-        onNavigate('/');
-      });
+  logOutBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      logOut()
+        .then(() => {
+          onNavigate('/');
+        });
+    });
   });
 
   openModalPost.addEventListener('click', () => {
