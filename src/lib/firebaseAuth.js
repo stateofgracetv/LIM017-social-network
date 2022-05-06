@@ -93,7 +93,7 @@ export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 export const getDataWithFilters = (tag, callback) => {
   const dataSort = query(collection(db, 'posts'), where('tag', '==', tag));
-  console.log(tag);
+  // console.log(tag);
   return onSnapshot(dataSort, callback);
 };
 
@@ -102,7 +102,7 @@ export const getUser = (id) => {
   const docRefUsers = doc(db, 'users', id);
   return getDoc(docRefUsers);
 };
-console.log(getUser);
+// console.log(getUser);
 
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 

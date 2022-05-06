@@ -29,8 +29,8 @@ export const Feed = () => {
       </div>
       <textarea id="postDescription" placeholder="Write your recommendation here"></textarea>
       <div class="post">
+        <input type="button" id="cancelUpload" value="Cancel" class="button gray">
         <input type="submit" id="postBtn" value="Post" class="button">
-        <input type="button" id="cancelUpload" value="Cancel" class="button">
       </div>
     </form>
 
@@ -38,7 +38,7 @@ export const Feed = () => {
     <div id="deleteDiv" class="inactive modal">
       <h3 class="margin purple" >Are you sure to delete?</h3>
       <div class="flexDlt">
-        <input type="button" id="cancelDelete" value="Cancel" class="button">
+        <input type="button" id="cancelDelete" value="Cancel" class="button gray">
         <input type="button" id="confirmDelete" value="Delete" class="button">
       </div>
     </div>
@@ -154,11 +154,15 @@ export const Feed = () => {
               <p id="tagSelected">${postData.tag}</p>
             </div>
             <p id="postBody">${postData.post}</p>
-            <i class="icon-heart likeButton" id></i>
-            <div>
-            <button class="btnEdit" data-id=${doc.id}>Edit</button>
+            <div class="interact">
+              <i class="icon-heart likeButton" id></i>
+              <button class="btnEdit" data-id=${doc.id}>
+                <i class="icon-pencil"></i>Edit
+              </button>
+              <button class="deleteBtns" data-id="${doc.id}">
+                <i class="icon-bin"></i>Delete
+              </button>
             </div>
-            <input type="button" class="deleteBtns" value="Delete" data-id="${doc.id}">
           </div>
           `;
         postContainer.innerHTML = posts;
