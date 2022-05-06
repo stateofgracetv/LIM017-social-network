@@ -26,7 +26,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  setDoc,
+  /* setDoc, */
   serverTimestamp,
   deleteDoc,
   where,
@@ -62,30 +62,18 @@ export const logOut = () => signOut(auth);
 export const getUserLocalStorage = () => JSON.parse(localStorage.getItem('user'));
 
 export function removeLikes(docId, userId) {
-  const removeLikePost = doc(db, 'publications', docId);
+  const removeLikePost = doc(db, 'posts', docId);
   return updateDoc(removeLikePost, {
-    Likes: arrayRemove(userId), // Aquí estamos borrando el id del user en el array Likes.
+    likes: arrayRemove(userId), // Aquí estamos borrando el id del user en el array Likes.
   });
 }
 
 // Funcion para añadir likes
 export function addLikes(docId, userId) {
-  const addLikePost = doc(db, 'publications', docId);
+  const addLikePost = doc(db, 'posts', docId);
   return updateDoc(addLikePost, {
-    Likes: arrayUnion(userId), // Aquí estamos añadiendo el id del user en el array Likes.
+    likes: arrayUnion(userId), // Aquí estamos añadiendo el id del user en el array Likes.
   });
-}
-
-// Funcion que sube un nuevo array con los ids de los usuarios que han dado like a la publicacion
-export function postLike(id, newArray) {
-  return setDoc(doc(db, 'posts', id), { likes: newArray }, { merge: true });
-}
-// Funcion que obtiene el array de likes de una publicacion
-export async function getArrayLikes(e) {
-  const docSnap = await getDoc(doc(db, 'posts', e));
-  // eslint-disable-next-line prefer-const
-  let likesPublications = docSnap.data().likes;
-  return likesPublications;
 }
 
 // Guardar post en FireStore
@@ -114,6 +102,36 @@ export const getUser = (id) => {
   const docRefUsers = doc(db, 'users', id);
   return getDoc(docRefUsers);
 };
+console.log(getUser);
+
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 
 export const updatePost = (id, editedFields) => updateDoc(doc(db, 'posts', id), editedFields);
+
+/* Tiene un parametroooo vacíiiio
+// Funcion que sube un nuevo array con los ids de los usuarios que han dado like a la publicacion
+export function postLike(id, newArray) {
+  return setDoc(doc(db, 'posts', id), { likes: newArray }, { merge: true });
+}
+// Funcion que obtiene el array de likes de una publicacion
+export async function getArrayLikes(e) {
+  const docSnap = await getDoc(doc(db, 'posts', e));
+  // eslint-disable-next-line prefer-const
+  let array = docSnap.data().likes;
+  return array;
+} */
+
+/* export function postLike(id, newArray) {
+  return setDoc(doc(db, 'posts', id), { likes: newArray }, { merge: true });
+}
+console.log('sooooy db', doc('posts'));
+
+// Funcion que obtiene el array de likes de una publicacion
+export async function getArrayLikes(e) {
+  const docSnap = await getDoc(doc(db, 'posts', e));
+  console.log('argumeeeentosss', db, 'posts');
+  // eslint-disable-next-line prefer-const
+  let array = docSnap.data().likes;
+  return array;
+}
+console.log('SSSSSSSoy firebase auth en getArrayLikes', getArrayLikes(), postLike()); */
