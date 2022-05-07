@@ -441,6 +441,9 @@ section {
 .listItem {
     cursor: pointer;
 }
+.listItem:hover{
+    color: #fa4564;
+}
 .sidebarIcon {
     align-self: center;
 }

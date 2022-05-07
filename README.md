@@ -1,5 +1,13 @@
 # Creando una Red Social
 
+
+
+
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/b41655ec9309d642b923d6f80ee616abcaaf0651/src/images/images%20for%20readme/Prototipo%20de%20alta%20fidelidad-11.png)
+
+
+
+
 ## Índice
 
 * [1. Preámbulo](#1-preámbulo)
