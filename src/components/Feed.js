@@ -11,7 +11,7 @@ export const Feed = () => {
   const feedDiv = document.createElement('div');
   const containerFeed = `
     <header class= "navFeed">
-      <nav class="top headerReset">
+      <nav class="topFeed headerReset">
         <img src="images/logotype/Full-logo.png" alt="Binge Worthy logo" class="logoFeed">
         <input type="button" id="logOutMobile" value="Log out" class="button logOut">
       </nav>
