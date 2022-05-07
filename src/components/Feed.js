@@ -117,6 +117,7 @@ export const Feed = () => {
     postForm.reset();
     changeToPostingStatus();
   });
+
   // Funciones de la ventana modal de delete
   const cancelDelete = feedDiv.querySelectorAll('#cancelDelete');
   const overlayDelete = feedDiv.querySelector('#overlayDelete');

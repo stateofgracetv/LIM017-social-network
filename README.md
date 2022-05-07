@@ -33,31 +33,31 @@
 
 *Criterios de aceptación*
 
-*✔️ Botón en la página de bienvenida para ir al registro.
-*✔️ Campo de input para correo electrónico.
-*✔️ Campo de input para contraseña.
-*✔️Mostrar y ocultar contraseña.
-*✔️ Botón de crear cuenta.
-*✔️ Si coinciden, redirige a una página de confirmar correo electrónico.
+* ✔️ Botón en la página de bienvenida para ir al registro.
+* ✔️ Campo de input para correo electrónico.
+* ✔️ Campo de input para contraseña.
+* ✔️Mostrar y ocultar contraseña.
+* ✔️ Botón de crear cuenta.
+* ✔️ Si coinciden, redirige a una página de confirmar correo electrónico.
 
 *Definición de terminado*
 
-*✔️Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
-*✔️ Debe ser una SPA.
-*✔️ Debe ser responsive.
-*✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
-*✔️ Pasaron los test unitarios.
-*✔️ Test manual buscando errores e imperfecciones simples.
-*✔️ Etiqueta de versión (git tag).
+* ✔️Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+* ✔️ Debe ser una SPA.
+* ✔️ Debe ser responsive.
+* ✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+* ✔️ Pasaron los test unitarios.
+* ✔️ Test manual buscando errores e imperfecciones simples.
+* ✔️ Etiqueta de versión (git tag).
 
 #### Historia Usuario 2⃣
 
 *Criterios de aceptación*
 
-*✔️ Contraseña ocultable.
-*✔️ Floating label para campos de email y contraseña.
-*✔️ Botón de olvidé mi contraseña "i forgot my password".
-*✔️ Botón de login que redirige lleva al muro.
+* ✔️ Contraseña ocultable.
+* ✔️ Floating label para campos de email y contraseña.
+* ✔️ Botón de olvidé mi contraseña "i forgot my password".
+* ✔️ Botón de login que redirige lleva al muro.
 
 *Definición de terminado*
 

@@ -112,10 +112,8 @@ export const Register = () => {
           const user = userCredential.user; // COMO PARAMETRO userCredential */
           progressMsg.innerText = 'Your account is being created, please wait';
           getUser(user.uid)
-            .then((re) => {
-              console.log(re);
-            })
-            .catch((err) => err);
+            .then(() => {
+            });
           verificationEmail()
             .then(() => {
               onNavigate('/verifyEmail');

@@ -107,8 +107,7 @@ export const LogIn = () => {
   const fbRegBtn = logInDiv.querySelector('#fbLogBtn');
   fbRegBtn.addEventListener('click', () => {
     logInFacebook()
-      .then((result) => {
-        console.log('facebook sign up', result);
+      .then(() => {
         onNavigate('/feed');
       });
   });
