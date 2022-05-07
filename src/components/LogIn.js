@@ -1,5 +1,4 @@
 /* eslint-disable import/no-cycle */
-// eslint-disable-next-line import/newline-after-import
 import {
   logInEmail,
   logInGoogle,
@@ -69,17 +68,14 @@ export const LogIn = () => {
     e.preventDefault();
     logInEmail(email.value, password.value)
       .then(() => {
-        console.log('cuentaaaaaaa creaddaaaaaaaaa');
-        logInMsg.innerHTML = 'The user logged in';
         email.classList.add('valid');
         password.classList.add('valid');
         setTimeout(() => {
           onNavigate('/feed');
         }, 2000);
-        console.log('mensaje de loginnnnnn', logInMsg);
+        // console.log('mensaje de loginnnnnn', logInMsg);
       })
       .catch((error) => {
-        console.log('entreeee al error');
         if (error.code === 'auth/user-not-found') {
           logInMsg.innerHTML = 'User not found';
           email.classList.add('invalid');
@@ -105,40 +101,17 @@ export const LogIn = () => {
   googleRegBtn.addEventListener('click', () => {
     logInGoogle()
       .then(() => {
-      // const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
         onNavigate('/feed');
       });
   });
-  /*       .catch((error) => {
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-      // const email = error.email;
-      // const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(error);
-      });
-  }); */
-
   const fbRegBtn = logInDiv.querySelector('#fbLogBtn');
   fbRegBtn.addEventListener('click', () => {
     logInFacebook()
       .then((result) => {
-        // const user = result.user;
         console.log('facebook sign up', result);
-        // const credential = FacebookAuthProvider.credentialFromResult(result);
-        // const accessToken = credential.accessToken;
         onNavigate('/feed');
       });
   });
-
-  /* .catch((error) => {
-        /* const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = FacebookAuthProvider.credentialFromError(error);
-        console.log(error);
-      });
-  }); */
 
   const backIcon = logInDiv.querySelector('.icon-arrow-left2');
   backIcon.addEventListener('click', () => {

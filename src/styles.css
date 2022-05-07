@@ -13,15 +13,12 @@
 body {
     background-image: url(./images/mobile/mobile-background.png);
 }
-
 title {
     display: none;
 }
-
 div {
     justify-items: center;
 }
-
 section {
     justify-items: center;
 }
@@ -36,7 +33,6 @@ section {
     background-color: #fa4564;
     transition: 0.3s;
 }
-
 .button:hover {
     cursor: pointer;
     background-color: crimson;
@@ -46,7 +42,6 @@ section {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .link:hover {
     color: crimson;
 }
@@ -54,23 +49,22 @@ section {
 .pink {
     color: #fa4564;
 }
-
 .purple {
     color: #9A0680;
 }
-
 .darkPurple {
     color: #5F256E;
+}
+.gray {
+    background-color: lightslategray;
 }
 
 .w5 {
     font-weight: 500;
 }
-
 .w6 {
     font-weight: 600;
 }
-
 .w7 {
     font-weight: 700;
 }
@@ -313,6 +307,11 @@ section {
     height: 50vh;
     padding: 10px;
 }
+#deleteDiv {
+    width: 35vw;
+    min-width: 240px;
+    height: 25vh;
+}
 .modalDlt {
     position: fixed;
     top: 50%;
@@ -424,16 +423,24 @@ section {
 .listItem {
     cursor: pointer;
 }
+.sidebarIcon {
+    align-self: center;
+}
+.iconLabel {
+    display: none;
+}
 
 #uploadPost{
     height: 60px;
-    position: absolute;
-    bottom: 15%;
 }
 #uploadPost:hover {
     cursor: pointer;
 }
 
+#postContainer {
+    gap: 20px;
+    margin: 15vh 0 20vh;
+}
 #postFormContainer {
     background: white;
     box-shadow: 0px 10px 15px -5px #c6c6c6;
@@ -441,24 +448,49 @@ section {
     width: 40vh;
 }
 .postBody {
-    background: #efecec;
     border-radius: 0px 0px 10px 10px;
     height: 150px;
 }
-#postContainer {
-    gap: 20px;
-    margin: 15vh 0 20vh;
-}
 .usersEmail {
-    padding: 15px;
+    padding: 20px;
+    grid-auto-flow: column;
+    gap: 1vw;
+}
+#tagSelected {
+    align-self: center;
+}
+#postBody {
+    margin: 0 2vw;
+}
+.interact {
+    grid-auto-flow: column;
+    width: 60%;
+    justify-content: space-evenly;
+    margin: 15px;
 }
 
 .likeButton {
     cursor: pointer;
     color: #5F256E;
+    padding-right: 1vw;
+    align-self: center;
 }
 .icon-like-red{
     color: red;
+}
+
+.btnEdit, .deleteBtns {
+    grid-auto-flow: column;
+    border: none;
+    border-radius: 20px;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px 10px;
+    background-color: lightgray;
+    transition: 0.3s;
+}
+.icon-pencil, .icon-bin {
+    padding-right: 5px;
 }
 
 @media (min-width: 867px) and (max-width: 1800px){
@@ -560,6 +592,9 @@ section {
     #uploadPost {
         position: relative;
         margin: auto;
+    }
+    p.iconLabel {
+        display: grid;
     }
     .listItem {
         display: flex;
