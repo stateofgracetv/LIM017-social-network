@@ -24,7 +24,7 @@ export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
-    pathname,
+    window.location.origin + pathname,
   );
   while (root.firstChild) {
     root.removeChild(root.firstChild);
@@ -37,13 +37,13 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 export const checkEmail = (str) => {
-  const emailPattern = /^([a-z\d]+)([.\-_][a-z\d]+)?@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+  const emailPattern = /^([a-z\d.-_]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
   if (!emailPattern.test(str)) {
     return false;
   } if (emailPattern.test(str)) {
     return true;
   }
-  return emailPattern;
+  return checkEmail();
 };
 
 export const checkPassword = (str) => {
@@ -53,5 +53,5 @@ export const checkPassword = (str) => {
   } if (passwordPattern.test(str)) {
     return true;
   }
-  return passwordPattern;
+  return checkPassword();
 };
