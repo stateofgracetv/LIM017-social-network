@@ -1,12 +1,197 @@
-# Creando una Red Social
+# Creando una Red Social : 📲 Binge Worthy
 
+## Introducción
+**Binge Worthy** significa digno de atracones, una red social dónde su comunidad puede encontrar y ofrecer las mejores recomendaciones de series, libros y películas.
 
+## Descripción del proyecto
+#### ¿Quiénes son los principales usuarios del producto?
 
+"El entretenimiento ha estado presente en la vida de los seres humanos desde tiempos inmemoriales. Incluso los animales buscan la manera de entretenerse en su hábitat y crean rituales con el mismo fin". Cuando se habla de entretenimiento, se habla de mucho más que de pasar el rato con fines recreativos, y las historias en todos los formatos ofrecen uno de las mejores opciones de entretenimiento para las personas.
 
-![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/b41655ec9309d642b923d6f80ee616abcaaf0651/src/images/images%20for%20readme/Prototipo%20de%20alta%20fidelidad-11.png)
+#### ¿Qué problema resuelve el producto?
+¿Estás buscando comedias con las que reírte un rato? ¿Clásicos imprescindibles que hay que ver al menos una vez en la vida? ¿Una película de acción que te dé un subidón de adrenalina? ¿O quizás alguno de esos dramas lacrimógenos para llorar a moco tendido? Tras más de un siglo de existencia del séptimo arte, las opciones son muchísimas. Y difícilmente encontrar algo sin durar horas buscando entre artículos de recomendaciones y perdiendo el tiempo disponible para el entretenimiento. Por ello, Binge Worthy viene a solucionarlo ofreciendo filtros que te ayudarán en la búsqueda de recomendaciones para hacer match, con tu historia favorita, en cualquiera de los formatos como series, libros y películas. Desde las manos de otros cinéfilos aficionados como tú.
 
+### Proceso creativo de diseño
 
+#### Prototipo de alta fidelidad para escritorio
 
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/2ba007c89770909dfe83559f1199a99de750a2f7/src/images/images%20for%20readme/hifi%20prototype%20-%20Desktop.png)
+
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/2ba007c89770909dfe83559f1199a99de750a2f7/src/images/images%20for%20readme/hifi%20prototype%20feed%20-%20Desktop.png)
+
+#### Prototipo de alta fidelidad para Móvil
+
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/2ba007c89770909dfe83559f1199a99de750a2f7/src/images/images%20for%20readme/hifi%20prototype%20-%20Mobile.png)
+
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/2ba007c89770909dfe83559f1199a99de750a2f7/src/images/images%20for%20readme/hifi%20prototype%20feed%20-%20Mobile.png)
+
+#### Historias de usuario
+
+![Imagen text](https://github.com/elianamendez1/LIM017-social-network/blob/2ba007c89770909dfe83559f1199a99de750a2f7/src/images/images%20for%20readme/User%20stories.png)
+
+#### Historia Usuario 1⃣
+
+*Criterios de aceptación*
+
+✔️ Botón en la página de bienvenida para ir al registro.
+✔️ Campo de input para correo electrónico.
+✔️ Campo de input para contraseña.
+✔️Mostrar y ocultar contraseña.
+✔️ Botón de crear cuenta.
+✔️ Si coinciden, redirige a una página de confirmar correo electrónico.
+
+*Definición de terminado*
+
+✔️Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+✔️ Etiqueta de versión (git tag).
+
+#### Historia Usuario 2⃣
+
+*Criterios de aceptación*
+
+✔️ Contraseña ocultable.
+✔️ Floating label para campos de email y contraseña.
+✔️ Botón de olvidé mi contraseña "i forgot my password".
+✔️ Botón de login que redirige lleva al muro.
+
+*Definición de terminado*
+
+✔️Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+
+#### Historia Usuario 3⃣
+
+*Criterios de aceptación*
+
+✔️ Botón para el registro con el logo de Google con redirección al Feed.
+✔️ Botón para el registro con el logo de Facebook con redirección al Feed.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+
+#### Historia Usuario 4⃣
+
+*Criterios de aceptación*
+
+✔️ Barra de navegación.
+✔️ Botones para los filtros.
+✔️ Botón de crear publicación.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+✔️ Etiqueta de versión (git tag).
+
+#### Historia Usuario 5⃣
+
+*Criterios de aceptación*
+
+✔️ Modal para crear publicación.
+✔️ Campo de input para ingresar título de publicación.
+✔️ Tener una Text content donde el usuario pueda ingresar su publicación.
+✔️ Campo de select para que el usuario agregue categoría de publicación.
+✔️ Botón de publicar.
+✔️ Al realizar la publicación asignarle una fecha y hora exacta para su organización en el feed.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+✔️ Etiqueta de versión (git tag).
+
+#### Historia Usuario 6⃣
+
+*Criterios de aceptación*
+
+✔️ Publicaciones ordenadas de acuerdo a la fecha automáticamente.
+✔️ Publicaciones más recientes aparecen primero.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+✔️ Etiqueta de versión (git tag).
+
+#### Historia Usuario 7⃣
+
+*Criterios de aceptación*
+
+✔️ Boton con ícono para eliminar.
+✔️ Ventana modal de ¿estás seguro de eliminar?
+✔️ Botón de aceptar eliminar.
+✔️ Botón de cancelar eliminar.
+✔️ Eliminar de la base de datos la publicación.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+
+#### Historia Usuario 8⃣
+
+*Criterios de aceptación*
+
+✔️ Boton con ícono para editar
+✔️ Botón de editar - redirecciona al modal para editar - (misma de publicar solo que con los datos de la publicación a modificar).
+✔️ Verificación de que la publicación no se duplique sino que se modifique.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+
+#### Historia Usuario 9⃣
+
+*Criterios de aceptación*
+
+✔️ Boton con ícono de corazón para dar Like.
+✔️ Ícono de like se colorea cuando se presiona y al quitar el like de descolorea.
+
+*Definición de terminado*
+
+✔️ Versión 1 de la App Binge Worthy completada en la rama Main **"tree clean"**.
+✔️ Debe ser una SPA.
+✔️ Debe ser responsive.
+✔️ Deben haber recibido code review de al menos una compañera de otro equipo.
+✔️ Pasaron los test unitarios.
+✔️ Test manual buscando errores e imperfecciones simples.
+✔️ Etiqueta de versión (git tag).
 
 ## Índice
 
