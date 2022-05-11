@@ -112,15 +112,11 @@ section {
 }
 
 .top {
-    /* grid-template-columns: 20vw 60vw 20vw;
-    margin-top: 2vh; */
     grid-template-columns: 5vw 57vw;
     margin: 1.5vh 0;
 }
 
 .topFeed {
-    /* grid-template-columns: 20vw 60vw 20vw;
-    margin-top: 2vh; */
     grid-template-columns: 55vw 42vw;
     margin: 1.5vh 0;
 }
@@ -130,7 +126,7 @@ section {
     cursor: pointer;
 }
 
-.meow {
+.headerMsg {
     margin: 20px 0 10px;
     font-size: larger;
 }
@@ -284,12 +280,12 @@ section {
     margin-top: 5px;
     gap: 15px;
 }
-/***yohana cambios **/
+/* yohana cambios */
 .padlock{
     width: 140px;
     margin: 5vh 0 4vh 0;
 }
-.meowFontMedium {
+.headerFontMedium {
     margin: 1px 0 20px 0px;
     font-size: medium;
 }
@@ -304,14 +300,14 @@ section {
 .space{
     margin: 5px;
 }
-.meow1 {
+.headerMsg2 {
     margin: 5px 0 5px;
     font-size: larger;
 }
 .margin{
     margin: 20px;
 }
-/** Yohana cambios feed*/
+/* Yohana cambios feed */
 .modal {
     position: fixed;
     top: 50%;
@@ -647,8 +643,6 @@ section {
         top: 40px;
     }
     .topFeed {
-        /* grid-template-columns: 20vw 60vw 20vw;
-        margin-top: 2vh; */
         grid-template-columns: 23vw;
         margin: 1.5vh 0;
     }

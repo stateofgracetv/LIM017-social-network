@@ -11,8 +11,8 @@ beforeEach(() => {
   ResetPassword();
 });
 
-describe('Rutas de navegación', () => {
-  it('Redirige a LogIn', () => {
+describe('On navigate', () => {
+  it('Takes user to Reser Password page', () => {
     const resetPassDiv = ResetPassword();
     const buttonresetPass = resetPassDiv.querySelector('#backLogIn');
     buttonresetPass.dispatchEvent(new Event('click'));
@@ -20,7 +20,7 @@ describe('Rutas de navegación', () => {
     expect(onNavigate('/logIn')).toEqual(logInComponent);
   });
 
-  it('Redirige a Home', () => {
+  it('Takes user back to home page', () => {
     const resetPassDiv = ResetPassword();
     const buttonresetPass = resetPassDiv.querySelector('#goToRegisterBtn');
     buttonresetPass.dispatchEvent(new Event('click'));

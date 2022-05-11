@@ -26,7 +26,6 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  /* setDoc, */
   serverTimestamp,
   deleteDoc,
   where,
@@ -93,7 +92,6 @@ export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
 export const getDataWithFilters = (tag, callback) => {
   const dataSort = query(collection(db, 'posts'), where('tag', '==', tag));
-  // console.log(tag);
   return onSnapshot(dataSort, callback);
 };
 
@@ -102,36 +100,6 @@ export const getUser = (id) => {
   const docRefUsers = doc(db, 'users', id);
   return getDoc(docRefUsers);
 };
-// console.log(getUser);
-
 export const getPost = (id) => getDoc(doc(db, 'posts', id));
 
 export const updatePost = (id, editedFields) => updateDoc(doc(db, 'posts', id), editedFields);
-
-/* Tiene un parametroooo vacíiiio
-// Funcion que sube un nuevo array con los ids de los usuarios que han dado like a la publicacion
-export function postLike(id, newArray) {
-  return setDoc(doc(db, 'posts', id), { likes: newArray }, { merge: true });
-}
-// Funcion que obtiene el array de likes de una publicacion
-export async function getArrayLikes(e) {
-  const docSnap = await getDoc(doc(db, 'posts', e));
-  // eslint-disable-next-line prefer-const
-  let array = docSnap.data().likes;
-  return array;
-} */
-
-/* export function postLike(id, newArray) {
-  return setDoc(doc(db, 'posts', id), { likes: newArray }, { merge: true });
-}
-console.log('sooooy db', doc('posts'));
-
-// Funcion que obtiene el array de likes de una publicacion
-export async function getArrayLikes(e) {
-  const docSnap = await getDoc(doc(db, 'posts', e));
-  console.log('argumeeeentosss', db, 'posts');
-  // eslint-disable-next-line prefer-const
-  let array = docSnap.data().likes;
-  return array;
-}
-console.log('SSSSSSSoy firebase auth en getArrayLikes', getArrayLikes(), postLike()); */

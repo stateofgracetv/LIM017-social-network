@@ -13,8 +13,8 @@ export const ResetPassword = () => {
       <img src="images/desktop/padlock.png" alt="Binge Worthy padlock" class="padlock">
     </figure>
     <div>
-      <h2 class="purple w6 meow1" >Do you have trouble logging in?</h2>
-      <p class="purple meowFontMedium" >Enter your email and will <br>
+      <h2 class="purple w6 headerMsg2" >Do you have trouble logging in?</h2>
+      <p class="purple headerFontMedium" >Enter your email and will <br>
       send you a link to log back <br>
       into your account</p>
     </div>
@@ -43,13 +43,10 @@ export const ResetPassword = () => {
   sendResetEmail.addEventListener('click', () => {
     recoverPasswordWithEmail(email.value)
       .then(() => {
-        console.log('reconoció el correo');
         sendEmailMsg.innerHTML = 'Password reset email sent,<br>please check you email';
         email.classList.add('valid');
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
         if (error.code === 'auth/missing-email') {
           sendEmailMsg.innerHTML = 'Enter your email';
           email.classList.add('invalid');

@@ -1,5 +1,4 @@
 /* eslint-disable import/no-cycle */
-
 import {
   signUpEmail, verificationEmail, logInGoogle, logInFacebook, getUser,
 } from '../lib/firebaseAuth.js';
@@ -16,7 +15,7 @@ export const Register = () => {
       </figure>
     </div>
     <div id="containerRegister">
-      <p class="purple w6 meow">Register with email</p>
+      <p class="purple w6 headerMsg">Register with email</p>
       <div class="container">
         <form action="" method="POST" class="form">
           <div class="formGroup">
@@ -109,7 +108,7 @@ export const Register = () => {
     if (checkEmail(email.value) && checkPassword(password.value)) {
       signUpEmail(email.value, password.value)
         .then((userCredential) => {
-          const user = userCredential.user; // COMO PARAMETRO userCredential */
+          const user = userCredential.user; // COMO PARAMETRO userCredential
           progressMsg.innerText = 'Your account is being created, please wait';
           getUser(user.uid)
             .then(() => {

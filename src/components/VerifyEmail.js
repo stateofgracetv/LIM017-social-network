@@ -10,7 +10,6 @@ export const VerifyEmail = () => {
   <br>
   <p id="signUpMsg"></p>
   `;
-
   verifyDiv.innerHTML = containerVerify;
 
   const verifyBtn = verifyDiv.querySelector('#verifyBtn');
@@ -18,8 +17,6 @@ export const VerifyEmail = () => {
 
   verifyBtn.addEventListener('click', () => {
     userState((user) => {
-      // const uid = user.uid;
-      // const email = user.email;
       const emailVerified = user.emailVerified;
       if (emailVerified) {
         signUpMsg.textContent = `${user.email} Verified email`;

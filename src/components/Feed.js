@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  updatePost, getPost, /* auth, */
+  updatePost, getPost,
   logOut, savePost, onGetPost,
   deletePost, getDataWithFilters,
 } from '../lib/firebaseAuth.js';

@@ -17,7 +17,7 @@ export const LogIn = () => {
       </figure>
     </div>
     <div class="containerLogin">
-      <p class="purple w6 meow">Log in with email</p>
+      <p class="purple w6 headerMsg">Log in with email</p>
       <div class="container">
         <form action="" method="POST" class="form">
           <div class="formGroup">
@@ -57,6 +57,7 @@ export const LogIn = () => {
     </div>
   </main>`;
   logInDiv.innerHTML = containerLogIn;
+
   const email = logInDiv.querySelector('#userEmailLogIn');
   const password = logInDiv.querySelector('#passwordLogIn');
   const logInBtn = logInDiv.querySelector('#logInBtn');
@@ -73,7 +74,6 @@ export const LogIn = () => {
         setTimeout(() => {
           onNavigate('/feed');
         }, 2000);
-        // console.log('mensaje de loginnnnnn', logInMsg);
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {

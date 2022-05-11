@@ -13,8 +13,8 @@ beforeEach(() => {
   LogIn();
 });
 
-describe('Rutas de navegación', () => {
-  it('Lleva a ResetPassword', () => {
+describe('On navigate', () => {
+  it('Changes the route to ResetPassword', () => {
     const logInDiv = LogIn();
     const buttonLogin = logInDiv.querySelector('#forgotPass');
     buttonLogin.dispatchEvent(new Event('click'));
@@ -22,7 +22,7 @@ describe('Rutas de navegación', () => {
     expect(onNavigate('/resetPassword')).toEqual(ResetPasswordComponent);
   });
 
-  it('Devuelve a la página anterior', () => {
+  it('Goes back to home page', () => {
     const logInDiv = LogIn();
     const buttonLogin = logInDiv.querySelector('.icon-arrow-left2');
     buttonLogin.dispatchEvent(new Event('click'));
@@ -31,8 +31,8 @@ describe('Rutas de navegación', () => {
   });
 });
 
-describe('Ingreso con cuentas externas a la App', () => {
-  it('Registra usuario de Google, ingresa, y lo lleva al Feed', (done) => {
+describe('Signs in with Google and Facebook', () => {
+  it('Signs in with Google and shows Feed', (done) => {
     const logInDiv = LogIn();
     const buttonLoginGoogle = logInDiv.querySelector('#googleRegBtn');
     buttonLoginGoogle.dispatchEvent(new Event('click'));
@@ -42,7 +42,7 @@ describe('Ingreso con cuentas externas a la App', () => {
     });
   });
 
-  it('Registra usuario de Facebook, ingresa, y lo lleva al Feed', (done) => {
+  it('Signs in with Facebook and shows Feed', (done) => {
     const logInDiv = LogIn();
     const buttonLoginFacebook = logInDiv.querySelector('#fbLogBtn');
     buttonLoginFacebook.dispatchEvent(new Event('click'));
@@ -52,8 +52,8 @@ describe('Ingreso con cuentas externas a la App', () => {
     });
   });
 
-  describe('Mostar y ocultar contraseña', () => {
-    it('Icono de ojo que muestra y oculta la contraseña', () => {
+  describe('Show and hide password', () => {
+    it('Toggles the password when clicking on the eye icon', () => {
       const logInDiv = LogIn();
       const eyeSlash = logInDiv.querySelector('#eyeSlashLogo1');
       const password = logInDiv.querySelector('#passwordLogIn');
@@ -72,10 +72,10 @@ describe('Ingreso con cuentas externas a la App', () => {
   });
 });
 
-describe('Inicia sesión o mostrar los errores en pantalla', () => {
+describe('Log in successfully or show errors', () => {
   beforeEach(() => createUserWithEmailAndPassword.mockClear());
 
-  it('Inicia sesión y muestra en pantalla, antes de derivar a feed el mensaje: The user logged in', (done) => {
+  it('Logs the user in and shows success message', (done) => {
     const logInDiv = LogIn();
     const logInBtn = logInDiv.querySelector('#logInBtn');
     const email = logInDiv.querySelector('#userEmailLogIn');
@@ -90,7 +90,7 @@ describe('Inicia sesión o mostrar los errores en pantalla', () => {
     done();
   });
 
-  it('Envía al Feed luego de iniciar sesión', (done) => {
+  it('Takes the user to the Feed', (done) => {
     const LogInDiv = LogIn();
     const logInBtn = LogInDiv.querySelector('#logInBtn');
     logInBtn.dispatchEvent(new Event('click'));

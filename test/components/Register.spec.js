@@ -14,8 +14,8 @@ beforeEach(() => {
   Register();
 });
 
-describe('Ingreso con cuentas externas a la App', () => {
-  it('Registra usuario de Google, ingresa, y lo lleva al Feed', (done) => {
+describe('Signs up with Google and Facebook', () => {
+  it('Signs up with Google and shows Feed', (done) => {
     const registerDiv = Register();
     const buttonLoginGoogle = registerDiv.querySelector('#googleRegBtn');
     buttonLoginGoogle.dispatchEvent(new Event('click'));
@@ -25,7 +25,7 @@ describe('Ingreso con cuentas externas a la App', () => {
     });
   });
 
-  it('Registra usuario de Facebook, ingresa, y lo lleva al Feed', (done) => {
+  it('Signs up with Facebook and shows Feed', (done) => {
     const registerDiv = Register();
     const buttonLoginFacebook = registerDiv.querySelector('#fbRegBtn');
     buttonLoginFacebook.dispatchEvent(new Event('click'));
@@ -36,8 +36,8 @@ describe('Ingreso con cuentas externas a la App', () => {
   });
 });
 
-describe('Navegación entre páginas', () => {
-  it('Devuelve a la página anterior', () => {
+describe('On navigate', () => {
+  it('Takes the user to the Verify Email page on account creation', () => {
     const registerDiv = Register();
     const buttonLogin = registerDiv.querySelector('#createAccBtn');
     buttonLogin.dispatchEvent(new Event('click'));
@@ -45,7 +45,7 @@ describe('Navegación entre páginas', () => {
     expect(onNavigate('/verifyEmail')).toEqual(VerifyComponent);
   });
 
-  it('Lleva a VerifyEmail', () => {
+  it('Goes back to the Home page', () => {
     const registerDiv = Register();
     const buttonLogin = registerDiv.querySelector('.icon-arrow-left2');
     buttonLogin.dispatchEvent(new Event('click'));
@@ -53,8 +53,8 @@ describe('Navegación entre páginas', () => {
   });
 });
 
-describe('Validación de email mientras el usuario ingresa el texto', () => {
-  it('El correo está bien escrito, el input es verde, ósea válido', () => {
+describe('On key up email validation', () => {
+  it('Input turns green when valid', () => {
     const registerDiv = Register();
     const email = registerDiv.querySelector('#userEmail');
     email.value = 'front@end.la';
@@ -63,7 +63,7 @@ describe('Validación de email mientras el usuario ingresa el texto', () => {
     expect(result).toBe(true);
   });
 
-  it('El correo está mal escrito, el input es rojo ósea, inválido', () => {
+  it('Input turns red when invalid', () => {
     const registerDiv = Register();
     const email = registerDiv.querySelector('#userEmail');
     email.value = 'frontend.la';
@@ -71,19 +71,19 @@ describe('Validación de email mientras el usuario ingresa el texto', () => {
     email.dispatchEvent(new Event('keyup'));
     expect(result).toBe(false);
   });
+});
 
-  describe('Validación de contraseña mientras el usuario ingresa el texto', () => {
-    it('La contraseña está bien escrita, el input es verde ósea válido', () => {
-      const registerDiv = Register();
-      const password = registerDiv.querySelector('#password');
-      password.value = '12345678';
-      const result = checkPassword(password.value);
-      password.dispatchEvent(new Event('keyup'));
-      expect(result).toBe(true);
-    });
+describe('On key up password validation', () => {
+  it('Input turns green when valid', () => {
+    const registerDiv = Register();
+    const password = registerDiv.querySelector('#password');
+    password.value = '12345678';
+    const result = checkPassword(password.value);
+    password.dispatchEvent(new Event('keyup'));
+    expect(result).toBe(true);
   });
 
-  it('La contraseña está mal escrita, el input es rojo ósea inválido', () => {
+  it('Input turns red when invalid', () => {
     const registerDiv = Register();
     const password = registerDiv.querySelector('#password');
     password.value = '12345';
@@ -91,46 +91,46 @@ describe('Validación de email mientras el usuario ingresa el texto', () => {
     password.dispatchEvent(new Event('keyup'));
     expect(result).toBe(false);
   });
+});
 
-  describe('Mostar y ocultar contraseña', () => {
-    it('Icono de ojo que muestra y oculta la contraseña', () => {
-      const registerDiv = Register();
-      const eyeSlash = registerDiv.querySelector('#eyeSlashLogo1');
-      const password = registerDiv.querySelector('#password');
-      password.type = 'password';
-      eyeSlash.style.display = '';
-      eyeSlash.dispatchEvent(new Event('click'));
-      expect(password.type).toBe('text');
-      expect(eyeSlash.style.display).toBe('none');
-      if (eyeSlash.style.display === 'none') {
-        const eye = registerDiv.querySelector('#eyeLogo1');
-        eye.dispatchEvent(new Event('click'));
-        expect(password.type).toBe('password');
-        expect(eyeSlash.style.display).toBe('');
-      }
-    });
+describe('Show and hide password', () => {
+  it('Toggles the password when clicking on the eye icon', () => {
+    const registerDiv = Register();
+    const eyeSlash = registerDiv.querySelector('#eyeSlashLogo1');
+    const password = registerDiv.querySelector('#password');
+    password.type = 'password';
+    eyeSlash.style.display = '';
+    eyeSlash.dispatchEvent(new Event('click'));
+    expect(password.type).toBe('text');
+    expect(eyeSlash.style.display).toBe('none');
+    if (eyeSlash.style.display === 'none') {
+      const eye = registerDiv.querySelector('#eyeLogo1');
+      eye.dispatchEvent(new Event('click'));
+      expect(password.type).toBe('password');
+      expect(eyeSlash.style.display).toBe('');
+    }
+  });
+});
+
+describe('Verifies status of account creation and shows message accordingly', () => {
+  beforeEach(() => createUserWithEmailAndPassword.mockClear());
+
+  it('If account creation is successful, shows "Your account is being created, please wait"', (done) => {
+    const registerDiv = Register();
+    const buttonRegister = registerDiv.querySelector('#createAccBtn');
+    const email = registerDiv.querySelector('#userEmail');
+    email.value = 'front@end.la';
+    const password = registerDiv.querySelector('#password');
+    password.value = '12345678';
+    buttonRegister.dispatchEvent(new Event('click'));
+    signUpEmail(email.value, password.value);
+    const result = registerDiv.querySelector('#progressMsg');
+    result.innerText = 'Your account is being created, please wait';
+    expect(result.innerText).toEqual('Your account is being created, please wait');
+    done();
   });
 
-  describe('Verifica creación de cuenta y si hay errores los muestra en pantalla', () => {
-    beforeEach(() => createUserWithEmailAndPassword.mockClear());
-
-    it('Crea la cuenta y muestra en pantalla, antes de derivar a VerifyEmail el mensaje: Your account is being created, please wait', (done) => {
-      const registerDiv = Register();
-      const buttonRegister = registerDiv.querySelector('#createAccBtn');
-      const email = registerDiv.querySelector('#userEmail');
-      email.value = 'front@end.la';
-      const password = registerDiv.querySelector('#password');
-      password.value = '12345678';
-      buttonRegister.dispatchEvent(new Event('click'));
-      signUpEmail(email.value, password.value);
-      const result = registerDiv.querySelector('#progressMsg');
-      result.innerText = 'Your account is being created, please wait';
-      expect(result.innerText).toEqual('Your account is being created, please wait');
-      done();
-    });
-  });
-
-  it('Muestra mensajes si hay errores al crear la cuenta', (done) => {
+  it('Shows errors if there are any', (done) => {
     const registerDiv = Register();
     const buttonRegister = registerDiv.querySelector('#createAccBtn');
     const email = registerDiv.querySelector('#userEmail');
