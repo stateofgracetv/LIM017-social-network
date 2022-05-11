@@ -471,7 +471,7 @@ section {
 }
 .postBody {
     border-radius: 0px 0px 10px 10px;
-    height: 150px;
+    margin: 0 2vw 3vh;
 }
 .usersEmail {
     padding: 20px;
@@ -498,7 +498,7 @@ section {
     align-self: center;
 }
 .icon-like-red{
-    color: red;
+    color: #fa4564;
 }
 
 .btnEdit, .deleteBtns {
